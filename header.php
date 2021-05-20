@@ -15,19 +15,11 @@
    ================================================== -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-	<!-- CSS
-    ================================================== -->
-  <link rel="stylesheet" href="css/default.css">
-	<link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/media-queries.css">
-
-   <!-- Script
-   ================================================== -->
-	<script src="js/modernizr.js"></script>
-
    <!-- Favicons
 	================================================== -->
 	<link rel="shortcut icon" href="favicon.ico" > 
+
+  <?php wp_head(); ?>
 
 </head>
 
