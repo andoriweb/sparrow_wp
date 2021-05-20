@@ -1,9 +1,11 @@
 <?php
 
   
-  add_action( 'wp_enqueue_scripts', 'sparrow_styles' );
-  add_action( 'wp_enqueue_scripts', 'sparrow_sctipts' );
+  add_action( 'wp_enqueue_scripts', 'sparrow_styles' ); // Подключение стилей
+  add_action( 'wp_enqueue_scripts', 'sparrow_sctipts' ); // Подключение скриптов
+  add_action( 'after_setup_theme', 'theme_register_nav_menu' ); // Регистрация меню
 
+  /* Подключение стилей */
   function sparrow_styles() {
     wp_enqueue_style( 'main-style', get_stylesheet_uri() );
     wp_enqueue_style( 'layout', get_template_directory_uri() . '/assets/css/layout.css' );
@@ -12,6 +14,7 @@
     wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/css/font-awesome/css/font-awesome.min.css' );
   }
 
+  /* Подключение скриптов */
   function sparrow_sctipts() {
     wp_deregister_script( 'jquery' );
     wp_enqueue_script( 'jqueryCDN', '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js' );
@@ -21,6 +24,12 @@
     wp_enqueue_script( 'doubletaptogo', get_template_directory_uri() . '/assets/js/doubletaptogo.js', array('jquery'), null, true );
     wp_enqueue_script( 'init', get_template_directory_uri() . '/assets/js/init.js', array('jquery'), null, true );
     wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/assets/js/modernizr.js', null, null, false );
+  }
+
+  /* Регистрация меню */
+  function theme_register_nav_menu() {
+    register_nav_menu( 'header-menu', 'Меню в шапке' );
+    register_nav_menu( 'footer-menu', 'Меню в подвале' );
   }
 
 
