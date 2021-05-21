@@ -13,7 +13,7 @@
                
                <article class="post">
                   <div class="entry-header cf">
-                     <h1><a href="single.html" title=""><?php the_title(); ?></a></h1>
+                     <h1><a href="<?php the_permalink(); ?>" title=""><?php the_title(); ?></a></h1>
                      <p class="post-meta">
                         <time class="date" datetime="2014-01-14T11:24"><?php echo get_the_date('F j, Y'); ?></time>
                         <?php the_tags( ' / ', ' / ') ?>
