@@ -92,12 +92,16 @@ img { border-radius: 3px; }
 #sidebar .link-list li {
    line-height: 24px;
 }
-#sidebar .link-list li a {
+#sidebar .cat-item a {
    border: none;
    color: #838C95;
 }
-#sidebar .link-list li a:hover {
+#sidebar .cat-item a:hover {
    color: #313131;
+}
+
+#sidebar .current-cat a {
+   color: #000;
 }
 
 /* tag cloud */

@@ -4,6 +4,7 @@
   add_action( 'wp_enqueue_scripts', 'sparrow_styles' ); // Подключение стилей
   add_action( 'wp_enqueue_scripts', 'sparrow_sctipts' ); // Подключение скриптов
   add_action( 'after_setup_theme', 'theme_register_nav_menu' ); // Регистрация меню
+  add_action( 'widgets_init', 'register_my_widgets' ); // Регистрация сайтбара
 
   /* Подключение стилей */
   function sparrow_styles() {
@@ -30,6 +31,23 @@
   function theme_register_nav_menu() {
     register_nav_menu( 'header-menu', 'Меню в шапке' );
     register_nav_menu( 'footer-menu', 'Меню в подвале' );
+  }
+
+  /* Регистрация Сайтбара */
+  function register_my_widgets(){
+
+    register_sidebar( array(
+      'name'          => 'Правый сайтбар',
+      'id'            => "right-sidebar",
+      'description'   => '',
+      'class'         => '',
+      'before_widget' => '<div class="widget %2$s">',
+      'after_widget'  => "</div>\n",
+      'before_title'  => '<h5 class="widgettitle">',
+      'after_title'   => "</h5>\n",
+      'before_sidebar' => '', // WP 5.6
+      'after_sidebar'  => '', // WP 5.6
+    ) );
   }
 
 
