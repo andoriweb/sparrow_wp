@@ -155,6 +155,12 @@ img { border-radius: 3px; }
    width: 54px;
    vertical-align: bottom;
 }
+.widget #gallery-1 .gallery-item {
+   margin: 0;
+}
+.gallery-icon {
+   padding: 3px;
+}
 
 /* search */
 #sidebar .widget_search form {
