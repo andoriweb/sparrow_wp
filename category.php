@@ -8,9 +8,41 @@
 
          <div id="primary" class="eight columns">
 
-            <article class="post">
 
-               <div class="entry-header cf">
+            <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+               
+               <article class="post">
+                  <div class="entry-header cf">
+                     <h1><a href="single.html" title=""><?php the_title(); ?></a></h1>
+                     <p class="post-meta">
+                        <time class="date" datetime="2014-01-14T11:24"><?php echo get_the_date('F j, Y'); ?></time>
+                        <?php the_tags( ' / ', ' / ') ?>
+                     </p>
+                  </div>
+                  <div class="post-thumb">
+                     <a href="<?php the_permalink(); ?>" title=""><?php the_post_thumbnail( 'thumbnails' ) ?></a>
+                  </div>
+                  <div class="post-content">
+                     <?php the_excerpt(  ); ?>
+                  </div>
+               </article> <!-- post end -->
+
+            <?php endwhile; ?>
+               <nav class="col full pagination">
+               <?php 
+                  the_posts_pagination( array(
+                     'show_all'  => false,
+                     'mid_size'  => 5,
+                     'end_size'  => 5,
+                     'prev_next' => true,
+                     'prev_text' => 'Prev',
+                     'next_text' => 'Next',
+                   ) ); 
+                  ?>
+               </nav>
+            <?php endif; ?>
+
+               <!-- <div class="entry-header cf">
 
                   <h1><a href="single.html" title="">Proin gravida nibh vel velit auctor aliquet Aenean sollicitudin auctor.</a></h1>
 
@@ -41,9 +73,10 @@
 
                </div>
 
-            </article> <!-- post end -->
+            </article>  -->
+            <!-- post end -->
 
-            <article class="post">
+            <!-- <article class="post">
 
                <div class="entry-header cf">
 
@@ -76,9 +109,10 @@
 
                </div>
 
-            </article> <!-- post end -->
+            </article>  -->
+            <!-- post end -->
 
-            <article class="post">
+            <!-- <article class="post">
 
                <div class="entry-header cf">
 
@@ -111,10 +145,11 @@
 
                </div>
 
-            </article> <!-- post end -->
+            </article>  -->
+            <!-- post end -->
 
             <!-- Pagination -->
-            <nav class="col full pagination">
+            <!-- <nav class="col full pagination">
   			      <ul>
                   <li><span class="page-numbers prev inactive">Prev</span></li>
   				      <li><span class="page-numbers current">1</span></li>
@@ -128,7 +163,7 @@
                   <li><a href="#" class="page-numbers">9</a></li>
   				      <li><a href="#" class="page-numbers next">Next</a></li>
   			      </ul>
-  		      </nav>
+  		      </nav> -->
 
          </div> <!-- Primary End-->
 
