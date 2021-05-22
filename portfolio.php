@@ -31,12 +31,8 @@
 
       <div id="secondary"  class="four columns entry-details">
         <h1>Our Portfolio.</h1>
-        <p class="lead">Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor,
-        nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh.</p>
-        <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor,
-        nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate
-        cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a
-        ornare odio.</p>
+        <p class="lead"><?php the_field('paragraph-1'); ?></p>
+        <p><?php the_field('paragraph-2'); ?></p>
       </div> <!-- Secondary End-->
 
       <div id="primary" class="eight columns portfolio-list">

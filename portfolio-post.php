@@ -38,20 +38,17 @@
 
           <div class="entry-description">
 
-            <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor,
-              nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate
-              cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a
-              ornare odio.</p>
+            <?php the_field('descr'); ?>
 
           </div>
 
           <ul class="portfolio-meta-list">
-            <li><span>Date: </span>January 2014</li>
-            <li><span>Client </span>Styleshout</li>
-            <li><span>Skills: </span>Photoshop, Photography, Branding</li>
+            <li><span>Date: </span><?php the_field('project-data'); ?></li>
+            <li><span>Client </span><?php the_field('project-client'); ?></li>
+            <li><span>Skills: </span><?php the_field('skills'); ?></li>
           </ul>
 
-          <a class="button" href="http://behance.net">View project</a>
+          <a class="button" href="<?php the_field('button-link'); ?>">View project</a>
 
         </div> <!-- secondary End-->
 
@@ -59,7 +56,7 @@
 
           <div class="entry-media">
 
-            <?php the_post_thumbnail( 'thumbnails' ) ?>
+            <?php the_post_thumbnail( 'thumbnails' ); ?>
 
             <!-- <img src="images/portfolio/entries/geometric-backgrounds-01.jpg" alt="" /> -->
 
@@ -69,9 +66,7 @@
 
           <div class="entry-excerpt">
 
-            <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor,
-              nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate
-              cursus a sit amet mauris. Morbi accumsan ipsum velit. </p>
+            <?php the_content(); ?>
 
           </div>
 
