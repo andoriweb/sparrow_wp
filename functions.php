@@ -39,14 +39,19 @@
     register_sidebar( array(
       'name'          => 'Правый сайтбар',
       'id'            => "right-sidebar",
-      'description'   => '',
-      'class'         => '',
       'before_widget' => '<div class="widget %2$s">',
       'after_widget'  => "</div>\n",
       'before_title'  => '<h5 class="widgettitle">',
       'after_title'   => "</h5>\n",
-      'before_sidebar' => '', // WP 5.6
-      'after_sidebar'  => '', // WP 5.6
+    ) );
+
+    register_sidebar( array(
+      'name'          => 'Сайтбар Контакты',
+      'id'            => "contact-sidebar",
+      'before_widget' => '<div class="widget %2$s">',
+      'after_widget'  => "</div>\n",
+      'before_title'  => '<h5 class="widgettitle">',
+      'after_title'   => "</h5>\n",
     ) );
   }
 
@@ -63,15 +68,12 @@
       <div class="nav-links">%3$s</div>
     </nav>
     */
-
     return '
     <nav class="navigation %1$s" role="navigation">
       <div class="nav-links">%3$s</div>
     </nav>    
     ';
   }
-
-  // выводим пагинацию
    
 
 
