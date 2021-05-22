@@ -1,5 +1,6 @@
 <?php get_header('blog'); ?>
 
+<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 <!-- Content
 ================================================== -->
 <div class="content-outer">
@@ -270,5 +271,31 @@
   </div>
 
 </section> <!-- Tweet Section End-->
+
+<?php endwhile; ?>
+<?php endif; ?>
+
+<?php
+  // параметры по умолчанию
+  $posts = get_posts( array(
+    'numberposts' => 5,
+    'category'    => 0,
+    'orderby'     => 'date',
+    'order'       => 'DESC',
+    'include'     => array(),
+    'exclude'     => array(),
+    'meta_key'    => '',
+    'meta_value'  =>'',
+    'post_type'   => 'post',
+    'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+  ) );
+
+  foreach( $posts as $post ){
+    setup_postdata($post);
+      // формат вывода the_title() ...
+  }
+
+  wp_reset_postdata(); // сброс
+?>
 
 <?php get_footer(); ?>
