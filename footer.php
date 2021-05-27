@@ -1,4 +1,29 @@
-<!-- footer
+<!-- Tweets Section
+================================================== -->
+<section id="tweets">
+
+  <div class="row">
+
+    <div class="tweeter-icon align-center">
+      <i class="fa fa-twitter"></i>
+    </div>
+
+    <ul id="twitter" class="align-center">
+      <li>
+        <span>
+          This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
+          Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum
+          <a href="#">http://t.co/CGIrdxIlI3</a>
+        </span>
+        <b><a href="#">2 Days Ago</a></b>
+      </li>
+    </ul>
+
+    <p class="align-center"><a href="#" class="button">Follow us</a></p>
+
+  </div>
+
+  <!-- footer
    ================================================== -->
   <footer>
     <div class="row">
@@ -24,8 +49,8 @@
         </ul>
 
         <ul class="copyright">
-          <li>Copyright &copy; 2014 Sparrow</li> 
-          <li>Design by <a href="http://www.styleshout.com/">Styleshout</a></li>               
+          <li>Copyright &copy; 2014 Sparrow</li>
+          <li>Design by <a href="http://www.styleshout.com/">Styleshout</a></li>
         </ul>
 
       </div> <!-- /.twelve columns -->
@@ -37,6 +62,6 @@
 
   <?php wp_footer(); ?>
 
-</body>
+  </body>
 
-</html>
+  </html>
