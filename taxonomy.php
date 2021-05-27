@@ -1,8 +1,3 @@
-<?php
-  /*
-    Template Name: Портфолио
-  */
-?>
 
 <?php get_header(); ?>
 
@@ -31,31 +26,15 @@
 
       <div id="secondary" class="four columns entry-details">
         <h1>Our Portfolio.</h1>
-        <p class="lead"><?php the_field('paragraph-1'); ?></p>
-        <p><?php the_field('paragraph-2'); ?></p>
+        <p class="lead"><?php the_field('paragraph-1', 112); ?></p>
+        <p><?php the_field('paragraph-2', 112); ?></p>
       </div> <!-- Secondary End-->
 
       <div id="primary" class="eight columns portfolio-list">
         <div id="portfolio-wrapper" class="bgrid-halves cf">
 
-          <?php
-            // параметры по умолчанию
-            $posts = get_posts( array(
-              'numberposts' => 6,
-              'category'    => 0,
-              'orderby'     => 'date',
-              'order'       => 'DESC',
-              'include'     => array(),
-              'exclude'     => array(),
-              'meta_key'    => '',
-              'meta_value'  =>'',
-              'post_type'   => 'portfolio',
-              'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
-            ) );
+          <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-            foreach( $posts as $post ){
-              setup_postdata($post);
-              ?>
           <div class="columns portfolio-item">
             <div class="item-wrap">
               <a href="<?php the_permalink(); ?>">
@@ -69,11 +48,11 @@
               </div>
             </div> <!-- /.item-wrap -->
           </div> <!-- columns portfolio-item first -->
-          <?php
-            }
 
-            wp_reset_postdata(); // сброс
-          ?>
+          <?php endwhile; else : ?>
+          <p>Записей нет.</p>
+          <?php endif; ?>
+
 
         </div> <!-- portfolio-wrapper -->
       </div> <!-- primary end-->

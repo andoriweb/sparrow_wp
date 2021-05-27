@@ -1,10 +1,3 @@
-<?php
- /*
-  Template Name: Работа в портфолио
-  Template Post Type: portfolio
- */
-?>
-
 <?php get_header(); ?>
 
 <!-- Page Title
@@ -43,9 +36,9 @@
         </div>
 
         <ul class="portfolio-meta-list">
-          <li><span>Date: </span><?php the_field('project-data'); ?></li>
+          <li><span>Date: </span><?php echo get_the_date('F j, Y'); ?></li>
           <li><span>Client </span><?php the_field('project-client'); ?></li>
-          <li><span>Skills: </span><?php the_field('skills'); ?></li>
+          <li><span>Skills: </span><?php the_terms( get_the_ID(), 'skills', '', ' / ', '' ); ?></li>
         </ul>
 
         <a class="button" href="<?php the_field('button-link'); ?>">View project</a>

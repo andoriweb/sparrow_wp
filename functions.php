@@ -95,7 +95,7 @@
       'description'         => '',
       'public'              => true,
       'publicly_queryable'  => true, // зависит от public
-      'exclude_from_search' => true, // зависит от public
+      'exclude_from_search' => false, // зависит от public
       'show_ui'             => true, // зависит от public
       'show_in_nav_menus'   => true, // зависит от public
       'show_in_menu'        => true, // показывать ли в меню адмнки
@@ -109,13 +109,65 @@
       //'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
       'hierarchical'        => false,
       'supports'            => [ 'title', 'editor','author','thumbnail','excerpt','post-formats' ], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
-      'taxonomies'          => [],
+      'taxonomies'          => ['skills'],
       'has_archive'         => false,
       'rewrite'             => true,
       'query_var'           => true,
     ] );
   }
+
+  /* Taxonomy */
+  // хук для регистрации
+  add_action( 'init', 'create_taxonomy' );
+  function create_taxonomy(){
+    // список параметров: wp-kama.ru/function/get_taxonomy_labels
+    register_taxonomy( 'skills', [ 'portfolio' ], [
+      'label'                 => '', // определяется параметром $labels->name
+      'labels'                => [
+        'name'              => 'Навыки',
+        'singular_name'     => 'Навык',
+        'search_items'      => 'Найти навык',
+        'all_items'         => 'Все навыки',
+        'view_item '        => 'Смотреть навыки',
+        'parent_item'       => 'Родительский навык',
+        'parent_item_colon' => 'Родительский Навык:',
+        'edit_item'         => 'Изменить навык',
+        'update_item'       => 'Обновить навык',
+        'add_new_item'      => 'Добавить новый навык',
+        'new_item_name'     => 'Новое имя навыка',
+        'menu_name'         => 'Навыки',
+      ],
+      'description'           => 'Навыки, которые использовались в проекте', // описание таксономии
+      'public'                => true,
+      'publicly_queryable'    => null, // равен аргументу public
+      'show_in_nav_menus'     => true, // равен аргументу public
+      'show_ui'               => true, // равен аргументу public
+      'show_in_menu'          => true, // равен аргументу show_ui
+      'show_tagcloud'         => true, // равен аргументу show_ui
+      'show_in_quick_edit'    => null, // равен аргументу show_ui
+      'hierarchical'          => false,
+      'rewrite'               => true,
+    ] );
+  }
    
+  add_action( 'pre_get_posts', 'true_modify_category_pages_loop' );
+ 
+  function true_modify_category_pages_loop( $query ) {
+  
+  
+    if ( ! is_admin() && $query->is_main_query() ) {
+      // не админка
+      // и основной цикл страницы
+  
+      if ( is_category() ) {
+        // страница архива рубрик
+  
+        // например установим 15 записей на странице
+        $query->set( 'posts_per_page', 4 );
+      }
+    }
+  }
+
 
 
 ?>
