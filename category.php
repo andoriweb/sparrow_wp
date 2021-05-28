@@ -27,15 +27,17 @@
          <?php endwhile; ?>
          <nav class="col full pagination">
             <?php 
-                  the_posts_pagination( array(
-                     'show_all'  => false,
-                     'mid_size'  => 5,
-                     'end_size'  => 5,
-                     'prev_next' => true,
-                     'prev_text' => 'Prev',
-                     'next_text' => 'Next',
-                   ) ); 
-                  ?>
+                the_posts_pagination(
+                  $args = array(
+                     'show_all'     => false, // показаны все страницы участвующие в пагинации
+                     'end_size'     => 10,     // количество страниц на концах
+                     'mid_size'     => 4,     // количество страниц вокруг текущей
+                     'prev_next'    => true,  // выводить ли боковые ссылки "предыдущая/следующая страница".
+                     'prev_text'    => 'Prev',
+                     'next_text'    => 'Next',
+                     'type'         => 'list',
+                  )
+               ); ?>
          </nav>
          <?php endif; ?>
 

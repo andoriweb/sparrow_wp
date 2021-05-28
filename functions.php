@@ -67,8 +67,8 @@
     </nav>
     */
     return '
-    <nav class="navigation %1$s" role="navigation">
-      <div class="nav-links">%3$s</div>
+    <nav class="pagination navigation %1$s" role="navigation">
+      <li class="pagin nav-links">%3$s</li>
     </nav>    
     ';
   }

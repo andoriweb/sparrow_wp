@@ -31,6 +31,9 @@
 body { background: #D2D8D8 url(../images/bg.jpg); }
 img { border-radius: 3px; }
 .content-outer { background: #fff }
+li {
+   list-style: none;
+}
 
 /* page title */
 #page-title {
@@ -1279,3 +1282,26 @@ footer .copyright  li:first-child:before {
    color: transparent;
 }
 #go-top a:hover { background-color: #0F9095; }
+
+.pagination .current {
+   background-color: #11ABB0;
+   color: #fff;
+}
+
+.pagination .page-numbers {
+   background-color: transparent;
+}
+.pagination .page-numbers:hover {
+   background-color: transparent;
+}
+
+.pagin li a.page-numbers {
+   background-color: #E6E8EB;
+}
+.pagin li a.page-numbers:hover {
+   background-color: #313131; 
+}
+.pagin li span.current {
+   background-color: #11ABB0 !important;
+   color: #fff;
+}

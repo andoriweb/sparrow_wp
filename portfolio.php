@@ -55,7 +55,7 @@
 
             foreach( $posts as $post ){
               setup_postdata($post);
-              ?>
+            ?>
           <div class="columns portfolio-item">
             <div class="item-wrap">
               <a href="<?php the_permalink(); ?>">
