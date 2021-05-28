@@ -1295,11 +1295,12 @@ footer .copyright  li:first-child:before {
    background-color: transparent;
 }
 
-.pagin li a.page-numbers {
+.pagin li a.page-numbers, #pagin li {
    background-color: #E6E8EB;
 }
-.pagin li a.page-numbers:hover {
-   background-color: #313131; 
+.pagin li a.page-numbers:hover, #pagin li:hover {
+   background-color: #313131;
+   color: #fff; 
 }
 .pagin li span.current {
    background-color: #11ABB0 !important;
