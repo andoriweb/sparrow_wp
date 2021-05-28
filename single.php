@@ -47,9 +47,8 @@
           </div>
 
           <ul class="post-nav cf">
-            <li class="prev"><a rel="prev" href="#"><strong>Previous Article</strong> Duis Sed Odio Sit Amet Nibh
-                Vulputate</a></li>
-            <li class="next"><a rel="next" href="#"><strong>Next Article</strong> Morbi Elit Consequat Ipsum</a></li>
+            <li class="prev"><?php previous_post_link( $format = '%link', $link = '<strong>Previous Article</strong> %title' ); ?></li>
+            <li class="next"><?php next_post_link( $format = '%link', $link = '<strong>Next Article</strong> %title' ); ?></li>
           </ul>
 
         </div>
