@@ -28,7 +28,7 @@
     <div class="row">
       <div class="twelve columns">
         <div class="logo">
-          <a href="<?php bloginfo('url'); ?>"><img alt="" src="images/logo.png"><span>Sparrow</span></a>
+          <a href="<?php bloginfo('url'); ?>"><img alt="" src="<?php the_field('logo', 60); ?>"><span></span></a>
         </div>
 
         <nav id="nav-wrap">
