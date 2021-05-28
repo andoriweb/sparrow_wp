@@ -41,46 +41,7 @@
 
         <div id="contact-form">
 
-          <!-- form -->
-          <form name="contactForm" id="contactForm" method="post" action="">
-            <fieldset>
-
-              <div class="half">
-                <label for="contactName">Name <span class="required">*</span></label>
-                <input name="contactName" type="text" id="contactName" size="35" value="" />
-              </div>
-
-              <div class="half pull-right">
-                <label for="contactEmail">Email <span class="required">*</span></label>
-                <input name="contactEmail" type="text" id="contactEmail" size="35" value="" />
-              </div>
-
-              <div>
-                <label for="contactSubject">Subject</label>
-                <input name="contactSubject" type="text" id="contactSubject" size="35" value="" />
-              </div>
-
-              <div>
-                <label for="contactMessage">Message <span class="required">*</span></label>
-                <textarea name="contactMessage" id="contactMessage" rows="15" cols="50"></textarea>
-              </div>
-
-              <div>
-                <button class="submit">Submit</button>
-                <span id="image-loader">
-                  <img src="images/loader.gif" alt="" />
-                </span>
-              </div>
-
-            </fieldset>
-          </form> <!-- Form End -->
-
-          <!-- contact-warning -->
-          <div id="message-warning"></div>
-          <!-- contact-success -->
-          <div id="message-success">
-            <i class="icon-ok"></i>Your message was sent, thank you!<br />
-          </div>
+          <?php echo do_shortcode('[contact-form-7 id="144" title="Контактная форма 1"]'); ?>
 
         </div> <!-- /.contact-form -->
 
