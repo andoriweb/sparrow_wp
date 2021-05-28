@@ -54,7 +54,7 @@
   }
 
   /* Регистрация превьюшки для постов и портфолио */
-  add_theme_support( 'post-thumbnails', array( 'post', 'portfolio' ) );
+  add_theme_support( 'post-thumbnails', array( 'post', 'portfolio', 'team' ) );
 
   /* Удаляет H2 из шаблона пагинации */
   add_filter('navigation_markup_template', 'my_navigation_template', 10, 2 );
@@ -73,7 +73,7 @@
     ';
   }
 
-  /* Создание нового типа записи */
+  /* Создание нового типа записи ПОРТФОЛИО*/
   add_action( 'init', 'register_post_types' );
   function register_post_types(){
     register_post_type( 'portfolio', [
@@ -150,22 +150,47 @@
     ] );
   }
    
-  add_action( 'pre_get_posts', 'true_modify_category_pages_loop' );
- 
-  function true_modify_category_pages_loop( $query ) {
-  
-  
-    if ( ! is_admin() && $query->is_main_query() ) {
-      // не админка
-      // и основной цикл страницы
-  
-      if ( is_category() ) {
-        // страница архива рубрик
-  
-        // например установим 15 записей на странице
-        $query->set( 'posts_per_page', 4 );
-      }
-    }
+  /* Создание нового типа записи КОМАНДА*/
+  add_action( 'init', 'register_post_team' );
+  function register_post_team(){
+    register_post_type( 'team', [
+      'label'  => null,
+      'labels' => [
+        'name'               => 'Команда', // основное название для типа записи
+        'singular_name'      => 'Сотрудник', // название для одной записи этого типа
+        'add_new'            => 'Добавить сотрудника', // для добавления новой записи
+        'add_new_item'       => 'Добавление сотрудника', // заголовка у вновь создаваемой записи в админ-панели.
+        'edit_item'          => 'Редактирование сотрудника', // для редактирования типа записи
+        'new_item'           => 'Новый сотрудник', // текст новой записи
+        'view_item'          => 'Смотреть сотрудника', // для просмотра записи этого типа.
+        'search_items'       => 'Искать сотрудника', // для поиска по этим типам записи
+        'not_found'          => 'Не найдено', // если в результате поиска ничего не было найдено
+        'not_found_in_trash' => 'Не найдено в корзине', // если не было найдено в корзине
+        'parent_item_colon'  => '', // для родителей (у древовидных типов)
+        'menu_name'          => 'Сотрудники', // название меню
+      ],
+      'description'         => '',
+      'public'              => true,
+      'publicly_queryable'  => true, // зависит от public
+      'exclude_from_search' => false, // зависит от public
+      'show_ui'             => true, // зависит от public
+      'show_in_nav_menus'   => true, // зависит от public
+      'show_in_menu'        => true, // показывать ли в меню адмнки
+      'show_in_admin_bar'   => true, // зависит от show_in_menu
+      'show_in_rest'        => true, // добавить в REST API. C WP 4.7
+      'rest_base'           => null, // $post_type. C WP 4.7
+      'menu_position'       => 5,
+      'menu_icon'           => 'dashicons-admin-users',
+      //'capability_type'   => 'post',
+      //'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
+      //'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
+      'hierarchical'        => false,
+      'supports'            => [ 'title', 'editor','thumbnail','post-formats' ], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+      'taxonomies'          => [],
+      'has_archive'         => false,
+      'rewrite'             => true,
+      'query_var'           => true,
+    ] );
   }
 
 
