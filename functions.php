@@ -193,6 +193,29 @@
     ] );
   }
 
+  //исключение страниц из результатов поиска start
+  function wpb_search_filter ( $query ) {
+    if ( $query->is_search && !is_admin () )
+    $query->set ( 'page','165' );
+    return $query;
+    }
+    add_filter ( 'pre_get_posts', 'wpb_search_filter' );
+
+    function searchExcludePages($query) {
+ 
+      if ($query->is_search) {
+       
+      $query->set('post_type', 'team');
+       
+      }
+       
+      return $query;
+       
+      }
+       
+      add_filter('pre_get_posts','searchExcludePages');
+    
+
 
 
 ?>
