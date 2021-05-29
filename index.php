@@ -116,61 +116,42 @@ Template Name: Home
 
     <div id="portfolio-wrapper" class="bgrid-quarters s-bgrid-halves">
 
+      <?php
+        // параметры по умолчанию
+        $posts = get_posts( array(
+          'numberposts' => 4,
+          'category'    => 0,
+          'orderby'     => 'date',
+          'order'       => 'DESC',
+          'include'     => array(),
+          'exclude'     => array(),
+          'meta_key'    => '',
+          'meta_value'  =>'',
+          'post_type'   => 'portfolio',
+          'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+        ) );
+
+        foreach( $posts as $post ){
+          setup_postdata($post);
+        ?>
       <div class="columns portfolio-item">
         <div class="item-wrap">
-          <a href="portfolio.html">
-            <img alt="" src="images/portfolio/geometrics.jpg">
+          <a href="<?php the_permalink(); ?>">
+            <?php the_post_thumbnail( 'thumbnails' ) ?>
             <div class="overlay"></div>
             <div class="link-icon"><i class="fa fa-link"></i></div>
           </a>
           <div class="portfolio-item-meta">
-            <h5><a href="portfolio.html">Geometrics</a></h5>
-            <p>Illustration</p>
+            <h5><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
+            <p><?php the_excerpt(  ); ?></p>
           </div>
-        </div>
-      </div>
+        </div> <!-- /.item-wrap -->
+      </div> <!-- columns portfolio-item first -->
+      <?php
+        }
 
-      <div class="columns portfolio-item">
-        <div class="item-wrap">
-          <a href="portfolio.html">
-            <img alt="" src="images/portfolio/console.jpg">
-            <div class="overlay"></div>
-            <div class="link-icon"><i class="fa fa-link"></i></div>
-          </a>
-          <div class="portfolio-item-meta">
-            <h5><a href="portfolio.html">Console</a></h5>
-            <p>Web Development</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="columns portfolio-item s-first">
-        <div class="item-wrap">
-          <a href="portfolio.html">
-            <img alt="" src="images/portfolio/camera-man.jpg">
-            <div class="overlay"></div>
-            <div class="link-icon"><i class="fa fa-link"></i></div>
-          </a>
-          <div class="portfolio-item-meta">
-            <h5><a href="portfolio.html">Camera Man</a></h5>
-            <p>Photography</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="columns portfolio-item">
-        <div class="item-wrap">
-          <a href="portfolio.html">
-            <img alt="" src="images/portfolio/into-the-light.jpg">
-            <div class="overlay"></div>
-            <div class="link-icon"><i class="fa fa-link"></i></div>
-          </a>
-          <div class="portfolio-item-meta">
-            <h5><a href="portfolio.html">Into The Light</a></h5>
-            <p>Branding</p>
-          </div>
-        </div>
-      </div>
+        wp_reset_postdata(); // сброс
+      ?>
 
     </div>
 
@@ -200,27 +181,27 @@ Template Name: Home
 
       foreach( $posts as $post ){
         setup_postdata($post);
-        ?>
-    <article class="row entry">
-      <div class="entry-header">
-        <div class="permalink">
-          <a href="<?php the_permalink(); ?>"><i class="fa fa-link"></i></a>
+    ?>
+      <article class="row entry">
+        <div class="entry-header">
+          <div class="permalink">
+            <a href="<?php the_permalink(); ?>"><i class="fa fa-link"></i></a>
+          </div>
+          <div class="ten columns entry-title pull-right">
+            <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+          </div>
+          <div class="two columns post-meta end">
+            <p>
+              <time datetime="2014-01-31" class="post-date" pubdate=""><?php echo get_the_date('F j, Y'); ?></time>
+              <span class="dauthor">By <?php the_author(); ?></span>
+            </p>
+          </div>
         </div>
-        <div class="ten columns entry-title pull-right">
-          <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+        <div class="ten columns offset-2 post-content">
+          <?php the_excerpt(  ); ?>
+          <a class="more-link" href="<?php the_permalink(); ?>">Read More<i class="fa fa-arrow-circle-o-right"></i></a>
         </div>
-        <div class="two columns post-meta end">
-          <p>
-            <time datetime="2014-01-31" class="post-date" pubdate=""><?php echo get_the_date('F j, Y'); ?></time>
-            <span class="dauthor">By <?php the_author(); ?></span>
-          </p>
-        </div>
-      </div>
-      <div class="ten columns offset-2 post-content">
-        <?php the_excerpt(  ); ?>
-        <a class="more-link" href="<?php the_permalink(); ?>">Read More<i class="fa fa-arrow-circle-o-right"></i></a>
-      </div>
-    </article> <!-- Entry End -->
+      </article> <!-- Entry End -->
     <?php
       } 
       wp_reset_postdata(); // сброс
