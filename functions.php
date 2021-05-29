@@ -193,27 +193,13 @@
     ] );
   }
 
-  //исключение страниц из результатов поиска start
-  function wpb_search_filter ( $query ) {
-    if ( $query->is_search && !is_admin () )
-    $query->set ( 'page','165' );
-    return $query;
-    }
-    add_filter ( 'pre_get_posts', 'wpb_search_filter' );
+  // исключение пустого запроса в search
+  add_filter('posts_search', function( $search, \WP_Query $q ) {
+    if (!is_admin() && empty($search) && $q->is_search() && $q->is_main_query())
+      $search .=" AND 0=1 ";
 
-    function searchExcludePages($query) {
- 
-      if ($query->is_search) {
-       
-      $query->set('post_type', 'team');
-       
-      }
-       
-      return $query;
-       
-      }
-       
-      add_filter('pre_get_posts','searchExcludePages');
+    return $search;
+  }, 10, 2);
     
 
 
