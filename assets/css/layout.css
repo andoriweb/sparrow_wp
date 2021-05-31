@@ -951,41 +951,54 @@ ol.commentlist {
 	border-bottom: 1px dotted #D9DEDB;
 }
 .commentlist  li .avatar {
-   position: absolute;
+   /* position: absolute; */
    left: -50px;
-   display: block;
-
+   display: inline-block;
+   margin-bottom: 10px;
    height: 50px;
    width: 50px;
 }
 .commentlist li .avatar img {
    margin-top: 6px;
+   
    height: 50px;
    width: 50px;
-
+   vertical-align: middle;
   	border-radius: 100% 100% 100% 100%;
 }
-.commentlist li .comment-info cite {
+.commentlist .comment-info {
+   display: inline-block;
+   margin-left: 20px;
+   vertical-align: middle;
+}
+.commentlist .comment-info cite {
    font: 16px/30px notosans-bold, sans-serif;
    color: #454545;
-}
-.commentlist li .comment-info .comment-meta {
-   font-size: 14px;
-   line-height: 24px;
    display: block;
 }
-.commentlist li .comment-info .comment-meta .reply {
+.commentlist .comment-info .comment-meta {
+   font-size: 14px;
+   line-height: 24px;
+   display: inline-block;
+}
+.commentlist .comment-info .comment-meta .reply {
    font-family: notosans-bold, sans-serif;
 }
-.commentlist li .comment-info .comment-meta .sep {
+.commentlist .comment-info .comment-meta .sep {
    margin: 0 5px;
    color: #AEB6B7;
 }
-.commentlist li .comment-text {
+.commentlist .comment-text {
+   /* overflow: hidden; */
+   margin-left: 70px;
+   margin-bottom: 30px;
+}
+.commentlist .comment-text p{
 	clear: both;
 	margin: 24px 0 0 0;
    padding: 0;
    line-height: 24px;
+   /* max-width: 700px; */
 }
 
 /* children */
@@ -1305,4 +1318,13 @@ footer .copyright  li:first-child:before {
 .pagin li span.current {
    background-color: #11ABB0 !important;
    color: #fff;
+}
+
+#respond > h3 {
+   display: none;
+}
+
+.text-red {
+   font-size: 18px;
+   color: red;
 }

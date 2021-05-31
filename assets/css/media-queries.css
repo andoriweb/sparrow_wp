@@ -349,7 +349,9 @@
       width: 100%;
       margin-left: 0;
    }
-   .commentlist  li .avatar { display: none; }
+   .commentlist  li .avatar { 
+      /* display: none;  */
+   }
 
    /* comment form */
    #comments form { margin-left: 0; }
