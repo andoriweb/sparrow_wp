@@ -34,10 +34,11 @@
           <div class="bio cf">
 
             <div class="gravatar">
-              <img src="images/author-img.png" alt="">
+            <?php echo get_avatar($comment, 72, ''); ?>
+              <!-- <img src="images/author-img.png" alt=""> -->
             </div>
             <div class="about">
-              <h5><a title="Posts by John Doe" href="#" rel="author">John Doe</a></h5>
+              <h5><a title="Posts by John Doe" href="#" rel="author"><?php the_author(); ?></a></h5>
               <p>Jon Doe is lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis
                 sed odio sit amet nibh vulputate
                 cursus a sit amet mauris. Morbi accumsan ipsum velit. Duis sed odio sit amet nibh vulputate
