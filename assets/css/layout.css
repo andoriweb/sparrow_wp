@@ -1328,3 +1328,10 @@ footer .copyright  li:first-child:before {
    font-size: 18px;
    color: red;
 }
+
+.error{
+   font-style: 40px;
+   text-align: center;
+   margin: 50px auto;
+   line-height: 2;
+}
